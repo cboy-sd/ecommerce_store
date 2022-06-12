@@ -11,7 +11,8 @@ def categories(request):
 
 def product_all(request):
     products = Product.products.all()
-    print(products)
+
+
     return render(request, "store/home.html", {'products': products})
 
 

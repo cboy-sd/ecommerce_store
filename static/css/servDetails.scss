@@ -1,0 +1,144 @@
+/*-- font style --*/
+@font-face {
+    font-family: "cairoB";
+    src: url('../font/Cairo-Bold.ttf')
+}
+
+@font-face {
+    font-family: "cairoR";
+    src: url('../font/Cairo-Regular.ttf')
+}
+
+@font-face {
+    font-family: "cairoS";
+    src: url('../font/Cairo-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: "airR";
+    src: url('../font/AirStripR.ttf')
+}
+@font-face {
+    font-family: "hiba";
+    src: url('../font/Hiba-Bold.otf')
+}
+
+
+/*-- body style --*/
+body {
+    box-sizing: content-box;
+    height: auto;
+    background-color: #EDEBE9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.web {
+    position: relative;
+    overflow: hidden;
+}
+
+/*--- start servDetails ---*/
+
+.servDetails{
+    position: relative;
+    padding:50px 15%;
+    background-color: #4A4847;
+    h3{
+        color: #EDEBE9;
+        font-size: 23px;
+        font-family: 'airR';
+        margin: 24px 0 0 0;
+    }
+    .image{
+        text-align: center;
+        background-color: #3C3C3C;
+        padding: 48px 10px;
+        border-radius: 53px;
+    }
+    .details{
+        margin:26px 0 0 0;
+        h3{
+            color: #D8D3CE;
+            font-size: 40px;
+            font-family: 'airR';
+            display: inline-block;
+            margin: 0 19px 0 0;
+        }
+        p{
+            font-size: 16px;
+            color: #EDEBE9;
+            font-family: 'cairoS';
+            line-height: 1.7;
+        }
+    }
+    .hotline{
+        text-align: center;
+        background-color: #555251;
+        margin: 43px 0 0 0;
+        padding: 10px;
+        border-radius: 13px;
+        color: #EDEBE9;
+        h3{
+            color: #D8D3CE;
+            font-size: 40px;
+            font-family: 'airR';
+            display: inline-block;
+            margin: 0 19px 0 0;
+        }
+        .phone{
+            display: inline-block;
+            position: relative;
+            img{
+                position: relative;
+                right: 0;
+                left: 17px;
+                top: -8px;
+            }
+            svg{
+                position: absolute;
+                top: -15px;
+                right: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+/*--- End servDetails ---*/ 
+
+/*--- start story-details ---*/
+.story-details {
+    position: relative;
+    padding:50px 15%;
+    background-color: #4A4847;
+    .imagee {
+        width: 100%;
+        height: 304px;
+        border-radius: 24px !important;
+        padding: 0 !important;
+        overflow: hidden;
+        margin-bottom: 30px;
+        img {
+            width: 100%;
+        }
+    }
+    .details {
+        padding: 0 0;
+        h1 {
+            font-family: "cairoB";
+            font-size: 20px;
+            margin: 0 0 22px 0;
+            color: #d8d3ce;
+        }
+        p {
+            font-family: "cairoR";
+            font-size: 16px;
+            color: #BBB;
+        }
+    }
+}

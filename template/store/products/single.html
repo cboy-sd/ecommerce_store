@@ -40,8 +40,9 @@
                                     <li>{{ product.description|slice:":355" }}</li>
 
                                 </ul>
-                                <button type="button" id="add-button" value="{{product.id}}"
-                                        class="btn btn-secondary btn-sm">Add to basket
+                                <button type="button"  class="btn btn-secondary" id="add-button" value="{{product.id}}"
+                                        class="btn btn-secondary btn-sm">
+                                    Add to basket
                                 </button>
                             </div>
                         </div>
@@ -49,8 +50,7 @@
                 </div>
             </div>
         </div>
-</div>
-</main>
+    </main>
 
 </div>
 <!-- java script -->
@@ -82,10 +82,6 @@ $("#select").change(function(){
          document.getElementById("price").innerHTML = total_price
         console.log(" total price is " + total_price )
 });
-
-
-
-
 
 </script>
 {% endblock %}

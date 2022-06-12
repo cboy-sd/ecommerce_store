@@ -1,0 +1,247 @@
+/*-- font style --*/
+@font-face {
+    font-family: "cairoB";
+    src: url('../font/Cairo-Bold.ttf')
+}
+
+@font-face {
+    font-family: "cairoR";
+    src: url('../font/Cairo-Regular.ttf')
+}
+
+@font-face {
+    font-family: "cairoS";
+    src: url('../font/Cairo-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: "airR";
+    src: url('../font/AirStripR.ttf')
+}
+@font-face {
+    font-family: "hiba";
+    src: url('../font/Hiba-Bold.otf')
+}
+
+
+/*-- body style --*/
+body {
+    box-sizing: content-box;
+    height: auto;
+    background-color: #EDEBE9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.web {
+    position: relative;
+    overflow: hidden;
+}
+
+/*--- start login / signup ---*/
+.login{
+    position: relative;
+    padding:50px 15%;
+    background-color: #2B2929;
+    .logg{
+        position: absolute;
+        right: 0;
+        top: 69px;
+    }
+    .logBy{
+        margin: 0 auto 26px auto;
+        text-align: center;
+        position: relative;
+        h3{
+            font-size: 30px;
+            font-family: 'airR';
+            color: #EDEBE9;
+            margin: 0 0 20px 0;
+        }
+        .social{
+            display: inline-block;
+            margin:0 0 0 7px;
+            background-color: #F6F5F4;
+            border: 1px solid #D8D3CE;
+            padding: 5px;
+            width: 60px;
+            height: 42px;
+            text-align: center;
+            line-height: 1.7;
+            border-radius: 36px;
+            cursor: pointer;
+            transition:all .3s ease-in-out;
+            &:hover{
+                background-color: #fc544cab;
+            }
+        }
+        .creat{
+            text-align: center;
+            position: relative;
+            margin: 17px 0 30px 0;
+            svg{
+                position: relative;
+                top: 9px;
+                right: 0;
+                left: 13px;
+            }
+            span{
+                font-size: 15px;
+                color: #EDEBE9;
+                font-family: 'cairoR';
+                position: relative;
+                top: 3px;
+                right: 0;
+                left: -14px;
+            }
+        }
+    }
+    .moo{
+        max-width: 550px;
+    }
+    form{
+        margin:30px auto 20px auto;
+        border-radius: 50px;
+        max-width: 400px;
+        position: relative;
+        .inp{
+            position: relative;
+            margin-bottom: 15px;
+            img{
+                position: absolute;
+                top: 22px;
+                left: 12px;
+            }
+            .eye{
+                position: absolute;
+                top: 22px;
+                right: 0;
+                left: 89%;
+            }
+            input{
+                background-color: #D8D3CE;
+                width: 100%;
+                height: 52px;
+                font-size: 16px;
+                color: #2B2929;
+                padding: 0px 0 0 37px;
+                overflow: hidden;
+                border-radius: 100px;
+                font-family: 'cairoS';
+                outline: 0;
+                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                &:focus{
+                    border: 2px solid #FC544C;
+                }
+                &::placeholder{
+                    color: #2B2929;
+                }
+            }
+            .forget{
+                h3{
+                    font-size: 12px;
+                    font-family: 'cairoS';
+                    color: #D8D3CE;
+                    margin: 22px 11px 0 0;
+                    display: inline-block;
+                }
+            }
+        }
+        .terms{
+            margin:2px 10px 0 0;
+            .check{
+                position: relative;
+                width: 20px;
+                height: 19px;
+                overflow: hidden;
+                display: inline-block;
+                input[type=checkbox]{
+                    display: none;
+                    position: absolute;
+                    top: 4px;
+                    left: 3px;
+                }
+                input:checked ~ label img {
+                    opacity: 1;
+                    transition: all ease-in .3s;
+                }
+                label{
+                    position: relative;
+                    width: 25px;
+                    height: 25px;
+                    z-index: 99;
+                    cursor: pointer;
+                    img{
+                        width: auto;
+                        position: absolute;
+                        top: 6px;
+                        left: 3px;
+                        opacity: 0;
+                        transition: all ease-in .3s;
+                    }
+                }
+                svg{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: auto;
+                }
+            }
+            h3{
+                font-size: 11px;
+                font-family: 'cairoS';
+                color: #7B7B7B;
+                margin: 0 0 0 6px;
+                display: inline-block;
+                position: relative;
+                top: -5px;
+                span{
+                    color: #F7494F;
+                    margin: 0 0 0 3px;
+                }
+            }
+        }
+        .contenu{
+            display: block;
+            border: 2px solid #6C6B6B;
+            border-radius: 50px;
+            width: 165px;
+            height: 54px;
+            margin:33px auto 0px auto;
+            cursor: pointer;
+            h3{
+                display: block;
+                font-size: 17px;
+                border: 2px solid #EBA4A4;
+                background: linear-gradient(0deg, rgba(252, 84, 76, 1) 0%, rgba(240, 55, 85, 1) 100%);
+                width: 121px;
+                height: 54px;
+                padding: 16px;
+                margin: -2px 0 0 -1px;
+                border-radius: 50px;
+                float: left;
+                text-align: center;
+                font-family:'airR';
+                color: #EDEBE9;
+                transition: all ease-in .3s;
+                &:hover{
+                    background: #EDEBE9;
+                    color:#FC544C ;
+                    border: 2px solid #fc544c6e;
+                }
+            }
+            img{
+                display: inline-block;
+                position: relative;
+                top: 12px;
+                right: 0;
+                left: 9px;
+            }
+        }
+    }
+}
+/*--- End Cart ---*/

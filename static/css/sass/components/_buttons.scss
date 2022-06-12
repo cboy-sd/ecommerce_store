@@ -1,0 +1,28 @@
+button{
+    font-size: $mainButtonSize;
+    font-family: 'cairoR';
+    width:142px;
+    height:58px;
+    color:#444343;
+    border: 2px solid #6C6B6B;
+    border-radius: 50px;
+    @include prefixer(border-radius, 50px, webkit moz o ms);
+    box-shadow: 2px 9px 18.79px 2.21px rgba(147, 147, 147, 0.14);
+    @include prefixer(box-shadow, 2px 9px 18.79px 2.21px rgba(147, 147, 147, 0.14), webkit moz o ms);
+    outline: 0;
+}
+
+input{
+    outline: 0;
+    border: 1px solid #E1E1E1;
+    width:100%;
+    height: 52px;
+    outline: 0;
+    padding: 0px 37px 0 0;
+    overflow: hidden;
+    border-radius: 100px;
+    font-family: 'cairoR';
+}
+a{
+    text-decoration: none;
+}

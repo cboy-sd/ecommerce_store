@@ -1,0 +1,172 @@
+/*-- font style --*/
+@font-face {
+    font-family: "cairoB";
+    src: url('../font/Cairo-Bold.ttf')
+}
+
+@font-face {
+    font-family: "cairoR";
+    src: url('../font/Cairo-Regular.ttf')
+}
+
+@font-face {
+    font-family: "cairoS";
+    src: url('../font/Cairo-SemiBold.ttf')
+}
+
+@font-face {
+    font-family: "airR";
+    src: url('../font/AirStripR.ttf')
+}
+@font-face {
+    font-family: "hiba";
+    src: url('../font/Hiba-Bold.otf')
+}
+
+
+/*-- body style --*/
+body {
+    box-sizing: content-box;
+    height: auto;
+    background-color: #EDEBE9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.web {
+    position: relative;
+    overflow: hidden;
+}
+
+/*--- start Cart ---*/
+.profile{
+    position: relative;
+    padding: 50px 0;
+    background-color: #4A4847;
+    .hedd{
+        text-align: center;
+        position: relative;
+        top: -125px;
+        left: 0;
+        right: 0;
+    }
+    .forms{
+        max-width: 660px;
+        background-color: #514F4E;
+        padding: 10px 5%;
+        margin:-82px auto 18px auto;
+        border-radius: 50px;
+        .users{
+            margin: 11px 0 20px 0;
+            ul{
+                list-style: none;
+                text-align: center;
+                position: relative;
+                li{
+                    margin-right: 20px;
+                    display: inline-block;
+                    text-align: center;
+                    position: relative;
+                    cursor: pointer;
+                    svg{
+                        position: absolute;
+                        top: -1px;
+                        right: 0;
+                        left: -1px;
+                        opacity: 0;
+                        transition: all ease-in-out .3s;
+                        &.active{
+                            cursor: pointer;
+                            opacity: 1;
+                        }
+                    }
+                    h3{
+                        font-size: 16px;
+                        color: #D8D3CE;
+                        font-family: 'cairoS';
+                        margin: 10px 0 0 0;
+                    }
+                }
+            }
+        }
+        form{
+            margin:30px 0 20px 0;
+            border-radius: 50px;
+            .inp{
+                position: relative;
+                margin-bottom: 15px;
+                img{
+                    position: absolute;
+                    top: 22px;
+                    left: 12px;
+                }
+                .eye{
+                    position: absolute;
+                    top: 22px;
+                    right: 0;
+                    left: 89%;
+                }
+                input{
+                    background-color: #D8D3CE;
+                    width: 100%;
+                    height: 52px;
+                    font-size: 16px;
+                    color: #2B2929;
+                    padding: 0px 0 0 37px;
+                    overflow: hidden;
+                    border-radius: 100px;
+                    font-family: 'cairoR';
+                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                    &:focus{
+                        border: 2px solid #FC544C;
+                    }
+                    &::placeholder{
+                        color: #2B2929;
+                    }
+                }
+            }
+            .contenu{
+                display: block;
+                border: 2px solid #6C6B6B;
+                border-radius: 50px;
+                width: 165px;
+                height: 54px;
+                margin:33px auto 0px auto;
+                cursor: pointer;
+                h3{
+                    display: block;
+                    font-size: 17px;
+                    border: 2px solid #EBA4A4;
+                    background: linear-gradient(0deg, rgba(252, 84, 76, 1) 0%, rgba(240, 55, 85, 1) 100%);
+                    width: 121px;
+                    height: 54px;
+                    padding: 16px;
+                    margin: -2px 1px 0 0;
+                    border-radius: 50px;
+                    float: left;
+                    text-align: center;
+                    font-family:'airR';
+                    color: #EDEBE9;
+                    transition: all ease-in .3s;
+                    &:hover{
+                        background: #EDEBE9;
+                        color:#FC544C ;
+                        border: 2px solid #fc544c6e;
+                    }
+                }
+                img{
+                    display: inline-block;
+                    position: relative;
+                    top: 12px;
+                    left: 5px;
+                    right: 16px;
+                }
+            }
+        }
+    }
+}
+/*--- End Cart ---*/

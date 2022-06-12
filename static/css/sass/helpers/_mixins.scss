@@ -1,0 +1,29 @@
+
+/* 
+** Mixin overlay
+*/
+
+@mixin overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*
+**prefixes Mixin
+**Auto add prefixes To Propret
+*/
+
+@mixin prefixer($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes{
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+}
+
+
+
+
