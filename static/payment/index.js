@@ -1,9 +1,11 @@
+//'use strict';
 
-var stripe = Stripe('pk_test_51L4PQFE18ZW4BRXeqEuofqsjEZihM0APTYkC4J1q1iZFazH9rbMztHsUS5XYtUX2UItWY2Y0DNudKzszWlYhDoI6005N30Ccue');
+
+var stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
 
 var elem = document.getElementById('submit');
 clientsecret = elem.getAttribute('data-secret');
-console.log(clientsecret)
+
 // Set up Stripe.js and Elements to use in checkout form
 var elements = stripe.elements();
 var style = {
@@ -67,14 +69,14 @@ var postCode = document.getElementById("postCode").value;
           console.log('payment error')
           console.log(result.error.message);
         } else {
-              if (result.paymentIntent.status === 'succeeded') {
-                console.log('payment processed')
-                // There's a risk of the customer closing the window before callback
-                // execution. Set up a webhook or plugin to listen for the
-                // payment_intent.succeeded event that handles any business critical
-                // post-payment actions.
-                window.location.replace("http://127.0.0.1:8000/payment/orderplaced/");
-              }
+          if (result.paymentIntent.status === 'succeeded') {
+            console.log('payment processed')
+            // There's a risk of the customer closing the window before callback
+            // execution. Set up a webhook or plugin to listen for the
+            // payment_intent.succeeded event that handles any business critical
+            // post-payment actions.
+            window.location.replace("http://127.0.0.1:8000/payment/orderplaced/");
+          }
         }
       });
 
