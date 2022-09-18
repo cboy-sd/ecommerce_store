@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Category, Product
+from orders.models import Order, OrderItem
 
 
 def categories(request):
@@ -10,10 +11,15 @@ def categories(request):
 
 
 def product_all(request):
+
+    user = request.user
+    print(user)
     products = Product.products.all()
+    context = {
+        "products": products,
+    }
 
-
-    return render(request, "store/home.html", {'products': products})
+    return render(request, "store/home.html",context)
 
 
 def category_list(request, category_slug=None):
