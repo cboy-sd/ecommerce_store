@@ -1,88 +1,52 @@
-
-from django.shortcuts import render
-from .forms import OrderForm, ImageForm
+from django.shortcuts import render, reverse
+from .forms import *
+from .models import OrderItem
 from basket.basket import Basket
 from .models import Order, OrderItem
-import phonenumbers
+from django.db import transaction
 
 
 def add(request):
-    owner = request.user
-    print(owner)
     basket = Basket(request)
-    total_price = request.POST.get('total_price')
-    print(total_price)
-    if request.method == "POST":
-        data = OrderForm(request.POST)
-        if data.is_valid() :
-            full_name = data.cleaned_data['full_name']
-            phone = data.cleaned_data['phone']
-            address = data.cleaned_data['address']
-            email = data.cleaned_data['email']
-            city = data.cleaned_data['city']
-            if Order.objects.all().filter(user=owner, Done=False).exists():
-                message = "you already have on pending please order after you order get Done "
-                context = {
-                    "message": message
-                }
-
-                return render(request, "order/feed_back.html", context)
-            else:
-                order = Order.objects.create(user=owner, full_name=full_name,
-                                             phone=phone, total_price=total_price,
-                                             address=address, email=email,
-                                             city=city)
-                order_id = order.pk
-                context = {
-
-                    "order_key": order.order_key
-                }
+    attachment = "payment/upload_attachment.html"
+    data = dict(request.itmes())
+    if request.user.is_authenticated:
+        order_data = {
+            "full_name": data.get('full_name'),
+            "email": data.get('email'),
+            "phone": data.get('phone'),
+            "net_total": data.get('net_total'),
+        }
+        form = OrderForm(order_data)
+        if form.is_valid():
+            with transaction.atomic():
+                order = form.save()
                 for item in basket:
-                    OrderItem.objects.create(order_id=order_id, product=item['product'], price=item['price'],
-                                             quantity=item['qty'])
-                    print(item['product'])
-                basket.clear()
-                return render(request, "payment/upload_attachment.html", context)
-        else:
-            context = {
-                "basket": basket
-            }
-            return render(request, "payment/order_form.html", context)
+                    order_item = OrderItem.objects.create(
+                        product=item['product'],
+                        price=item['price'],
+                        quantity=item['qnt'],
+                        order=order.pk
+                    )
+                basket = basket.clear()
+                print(basket)
+                return render(request, attachment, {"order_id": order.pk})
+        return render("payment/order_form.html", {"basket": basket})
+
+    return render(request, "payment/order_form.html", )
 
 
 def upload_invoice(request):
     if request.method == 'POST':
-        order_key = request.POST.get("order_key")
+        order_id = request.POST.get("order_id")
         user = request.user
-        if len(request.FILES) != 0:
-            form = ImageForm(request.POST, request.FILES)
-            if form.is_valid():
-                invo = form.cleaned_data['invoice']
-                order =  Order.objects.get(order_key=order_key)
-                order.invoice=invo
-                order.billing_status=True
-                order.save()
-                print("order image uploaded")
-                return render(request, "payment/orderplaced.html")
-            else:
-                return render(request, "payment/upload_attachment.html", {"order_key": order_key})
-        else:
-            return render(request, "payment/upload_attachment.html", {"order_key": order_key})
+        form = OrderAttachmentForm(request.POST, request.FILES)
+        if len(request.FILES) != 0 and form.is_valid():
+            form.billing_status = True
+            form.save()
+            return render(request, "payment/orderplaced.html")
 
-
-    # check if attachment file is not empty
-
-    #         order = Order.objects.filter(order_key=order_key, user=user).update(
-    #             invoice=invo, billing_status=True)
-    #         order.save()
-    #         return render(request, "payment/orderplaced.html")
-    #     except:
-    #         print("its not image file ")
-    #         return render(request, "payment/upload_attachment.html", {"order_key": order_key})
-    # else:
-    #     print("files is empty")
-    #     print(order_key)
-    #     return render(request, "payment/upload_attachment.html", {"order_key": order_key})
+    return render(request, "payment/upload_attachment.html", {"order_id": order_id})
 
 
 def user_orders(request):

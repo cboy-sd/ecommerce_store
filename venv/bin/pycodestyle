@@ -1,4 +1,4 @@
-#!/home/cboy/ecommerce_store/venv/bin/python3
+#!/media/cboy/D/Al-Hasif/Projects/ecommerce_store/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
